@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Generate Timetable</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h1>Generate Timetable</h1>
+
+    <label>
+        Number of Subjects
+    </label>
+
+    <input type="number" id="subjects">
+
+    <br><br>
+
+    <label>
+        Number of Teachers
+    </label>
+
+    <input type="number" id="teachers">
+
+    <br><br>
+
+    <label>
+        Number of Rooms
+    </label>
+
+    <input type="number" id="rooms">
+
+    <br><br>
+
+    <button onclick="generateTimetable()">
+
+        Generate Timetable
+
+    </button>
+
+    <div id="output"></div>
+
+    <script>
+
+        function generateTimetable() {
+
+            document.getElementById("output").innerHTML = `
+
+                <h2>Generated Timetable</h2>
+
+                Monday<br>
+
+                9-10 Math<br>
+
+                10-11 Physics<br>
+
+                <br>
+
+                Tuesday<br>
+
+                9-10 Chemistry<br>
+
+                10-11 English
+
+            `;
+        }
+
+    </script>
+
+</body>
+
+</html>
