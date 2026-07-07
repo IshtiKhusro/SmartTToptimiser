@@ -1,76 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <title>Generate Timetable</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Generate Timetable</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <h1>Generate Timetable</h1>
+<div class="container">
 
-    <label>
-        Number of Subjects
-    </label>
+<h1>📅 Smart Timetable Generator</h1>
 
-    <input type="number" id="subjects">
+<form action="/generate" method="POST">
 
-    <br><br>
+<table id="subjectTable">
 
-    <label>
-        Number of Teachers
-    </label>
+<thead>
 
-    <input type="number" id="teachers">
+<tr>
 
-    <br><br>
+<th>Subject</th>
 
-    <label>
-        Number of Rooms
-    </label>
+<th>Hours / Week</th>
 
-    <input type="number" id="rooms">
+<th>Action</th>
 
-    <br><br>
+</tr>
 
-    <button onclick="generateTimetable()">
+</thead>
 
-        Generate Timetable
+<tbody id="tableBody">
 
-    </button>
+<tr>
 
-    <div id="output"></div>
+<td>
 
-    <script>
+<select name="subject1" required>
 
-        function generateTimetable() {
+<option value="">Select Subject</option>
 
-            document.getElementById("output").innerHTML = `
+<option>Math</option>
+<option>Physics</option>
+<option>Chemistry</option>
+<option>English</option>
+<option>Biology</option>
+<option>Programming</option>
+<option>History</option>
+<option>Economics</option>
+<option>AI</option>
+<option>DBMS</option>
 
-                <h2>Generated Timetable</h2>
+</select>
 
-                Monday<br>
+</td>
 
-                9-10 Math<br>
+<td>
 
-                10-11 Physics<br>
+<input
+type="number"
+name="hours1"
+min="1"
+max="6"
+required>
 
-                <br>
+</td>
 
-                Tuesday<br>
+<td>
 
-                9-10 Chemistry<br>
+<button
+type="button"
+class="delete-btn"
+onclick="removeRow(this)">
 
-                10-11 English
+❌
 
-            `;
-        }
+</button>
 
-    </script>
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<br>
+
+<button
+type="button"
+onclick="addRow()">
+
+➕ Add Subject
+
+</button>
+
+<button
+type="submit">
+
+🚀 Generate Timetable
+
+</button>
+
+</form>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 

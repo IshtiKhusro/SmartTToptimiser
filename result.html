@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Generated Timetable</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📅 Smart Timetable</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h2>{{ stats.total_classes }}</h2>
+
+<p>Total Classes</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ stats.total_subjects }}</h2>
+
+<p>Subjects</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ stats.teachers }}</h2>
+
+<p>Teachers</p>
+
+</div>
+
+<div class="card">
+
+<h2>{{ stats.rooms }}</h2>
+
+<p>Rooms Used</p>
+
+</div>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Day</th>
+
+<th>Time Slot</th>
+
+<th>Subject</th>
+
+<th>Teacher</th>
+
+<th>Room</th>
+
+<th>Hours</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for row in timetable %}
+
+<tr>
+
+<td>{{ row.day }}</td>
+
+<td>{{ row.slot }}</td>
+
+<td>{{ row.subject }}</td>
+
+<td>{{ row.teacher }}</td>
+
+<td>{{ row.room }}</td>
+
+<td>{{ row.hours }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<br>
+
+<div style="text-align:center;">
+
+<a href="/generate">
+
+<button>
+
+➕ Generate Another Timetable
+
+</button>
+
+</a>
+
+<a href="/">
+
+<button>
+
+🏠 Home
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
